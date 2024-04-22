@@ -2,8 +2,9 @@
 {
     double altura;
     double peso;
-    string sexo;
+    string sexo = "";
     double IMC;
+    int opcao = 0;
 
     do
     {
@@ -29,18 +30,24 @@
 
     } while (peso <= 0);
 
-    do
+    Console.WriteLine("\nSelecione o sexo: \n");
+    Console.WriteLine("|1| Feminino");
+    Console.WriteLine("|2| Masculino");
+    opcao = int.Parse(Console.ReadLine());
+
+
+    switch (opcao)
     {
-        Console.Write("Digite o sexo (Masculino | Feminino) : ");
-        sexo = Console.ReadLine();
 
-        if (sexo != "Masculino" && sexo != "masculino" && sexo != "Feminino" && sexo != "feminino")
-        {
-            Console.WriteLine("\nInformação inválida para sexo!");
-            Console.WriteLine("--------------------------------------------\n\n");
-        }
+        case 1:
+            sexo = "Feminino";
+            break;
 
-    } while (sexo != "Masculino" && sexo != "masculino" && sexo != "Feminino" && sexo != "feminino");
+        case 2:
+            sexo = "Masculino";
+            break;
+    }
+
 
     IMC = peso / (altura * altura);
 
